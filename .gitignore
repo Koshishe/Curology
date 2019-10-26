@@ -1,6 +1,9 @@
 # Dependencies
 node_modules
 
+# Dist folders
+dist
+
 # VSCode
 .vscode
 
