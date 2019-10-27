@@ -29,11 +29,21 @@ module.exports = {
         exclude: '/node_modules/'
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.woff(2)?$/,
+        loader: 'file-loader',
+        options: {
+          publicPath: '../fonts/',
+          name: '[name].[ext]',
+          emitFile: false
+        }
+      },
+      {
+        test: /\.png|jp(e)?g|gif|svg$/,
         loader: 'file-loader',
         options: {
           publicPath: '../img/',
-          name: '[name].[ext]'
+          name: '[name].[ext]',
+          emitFile: false
         }
       },
       {
@@ -60,6 +70,11 @@ module.exports = {
       minify: false
     }),
     new CopyWebpackPlugin([
+      {
+        from: `${PATHS.src}/fonts`,
+        to: `${PATHS.dist}/fonts`,
+        ignore: ['.gitkeep']
+      },
       {
         from: `${PATHS.src}/img`,
         to: `${PATHS.dist}/img`,
