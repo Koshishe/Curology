@@ -6,7 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, './src'),
-  dist: path.join(__dirname, './dist')
+  dist: path.join(__dirname, './dist'),
+  cache: path.join(__dirname, './cache')
 };
 
 module.exports = {
@@ -38,7 +39,7 @@ module.exports = {
         }
       },
       {
-        test: /\.png|jp(e)?g|gif|svg$/,
+        test: /\.png|jp(e)?g|gif|svg$/i,
         loader: 'file-loader',
         options: {
           publicPath: '../img/',
