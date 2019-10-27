@@ -39,15 +39,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development'
-            }
-          },
+          MiniCssExtractPlugin.loader,
           'css-loader',
+          'postcss-loader',
           'sass-loader'
-          //@todo postcss
         ]
       }
     ]
