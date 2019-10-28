@@ -1,0 +1,145 @@
+@mixin aspect-ratio($width, $height: $width) {
+  &::after {
+    content: '';
+    display: block;
+    padding-top: percentage($height / $width);
+  }
+}
+
+@mixin round($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin clickable() {
+  cursor: pointer;
+  user-select: none;
+}
+
+@mixin scrollable() {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin decor() {
+  pointer-events: none;
+  user-select: none;
+}
+
+@mixin wrap-text() {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@mixin truncate-text() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin bg-cover() {
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin responsive-img() {
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin responsive-svg() {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin full-pos($coord) {
+  top: $coord;
+  right: $coord;
+  bottom: $coord;
+  left: $coord;
+}
+
+@mixin full-abs($coord) {
+  @include full-pos($coord);
+  position: absolute;
+}
+
+@mixin full-fix($coord) {
+  @include full-pos($coord);
+  position: fixed;
+}
+
+@mixin visually-hidden() {
+  position: absolute;
+  left: -9999px;
+  z-index: -1;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-appearance: none;
+}
+
+@mixin hidden-input() {
+  @include visually-hidden();
+}
+
+@mixin clearfix() {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin center-flex() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin center-abs($axis: both) {
+  @if $axis == both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  @else if $axis == w {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  @else if $axis == h {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+// @include dashed-border(3px, 2px, 2px, $border-base, right);
+@mixin dashed-border($dashlength, $spacelength, $borderwidth, $color, $position: top) {
+  $direction: to right;
+  
+  @if ($position == top) or ($position == bottom) {
+    background-size: ($dashlength/2 + $spacelength + $dashlength/2) $borderwidth;
+    background-repeat: repeat-x;
+  }
+  
+  @else {
+    background-size: $borderwidth ($dashlength/2 + $spacelength + $dashlength/2);
+    background-repeat: repeat-y;
+    $direction: to bottom;
+  }
+  background-image: linear-gradient($direction, $color 0, $color $dashlength/2, rgba(0, 0, 0, 0) $dashlength/2, rgba(0, 0, 0, 0) $dashlength/2 + $spacelength, $color $dashlength/2 + $spacelength, $color $dashlength/2 + $spacelength + $dashlength/2);
+  background-position: $position;
+}
+
+@mixin no-break-li() {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
