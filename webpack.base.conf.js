@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,6 +12,9 @@ const PATHS = {
   cache: path.join(__dirname, './cache')
 };
 
+const PAGES_DIR = `${PATHS.src}/templates/pages/`;
+const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.twig'));
+
 module.exports = {
   externals: {
     paths: PATHS
@@ -20,8 +24,7 @@ module.exports = {
   },
   output: {
     path: PATHS.dist,
-    filename: 'js/[name].bundle.js',
-    publicPath: '/'
+    filename: 'js/[name].bundle.js'
   },
   optimization: {
     splitChunks: {
@@ -50,6 +53,19 @@ module.exports = {
             scss: 'vue-style-loader!css-loader!sass-loader'
           }
         }
+      },
+      {
+        test: /\.twig$/,
+        use: [
+          'html-loader',
+          {
+            loader: 'njk-html-loader',
+            options: {
+              data: {},
+              root: `${PATHS.src}/templates`
+            }
+          },
+        ],
       },
       {
         test: /\.woff(2)?$/,
@@ -94,10 +110,9 @@ module.exports = {
       ignoreOrder: true
     }),
     new HtmlWebpackPlugin({
-      template: `${PATHS.src}/index.html`,
-      filename: './index.html',
-      inject: false,
-      minify: false
+      title: 'Simple Workflow Welcome | Pages list',
+      template: `${PATHS.src}/index.ejs`,
+      inject: false
     }),
     new CopyWebpackPlugin([
       {
@@ -114,6 +129,12 @@ module.exports = {
         from: `${PATHS.src}/static`,
         to: `${PATHS.dist}`
       }
-    ])
+    ]),
+    ...PAGES.map(page => new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}/${page}`,
+      filename: `./${page.replace(/\.twig/,'.html')}`,
+      minify: false,
+      hash: true
+    }))
   ]
 };
