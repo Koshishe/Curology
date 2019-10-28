@@ -23,6 +23,18 @@ module.exports = {
     filename: 'js/[name].bundle.js',
     publicPath: '/'
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          name: 'vendors',
+          test: /node_modules|vendor-aux/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
   module: {
     rules: [
       {
