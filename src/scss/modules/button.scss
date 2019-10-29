@@ -1,0 +1,5 @@
+$b: '.button';
+
+#{$b} {
+  @include clickable();
+}
