@@ -3,3 +3,6 @@
 @import 'base/supports/normalize';
 @import 'base/supports/reset';
 @import 'base/animations';
+@import 'base/global';
+@import 'vendor/includes';
+@import 'modules/*.scss';
