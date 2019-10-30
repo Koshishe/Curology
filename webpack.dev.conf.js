@@ -13,6 +13,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: 8081,
     progress: true
   },
+  module: {
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      }
+    ]
+  },
   plugins: [
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map'

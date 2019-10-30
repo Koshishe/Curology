@@ -15,4 +15,4 @@ export default function documentReady(fn) {
   // Otherwise, wait until document is loaded
   document.addEventListener('DOMContentLoaded', fn, false);
 
-};
+}
