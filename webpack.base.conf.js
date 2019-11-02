@@ -14,7 +14,7 @@ const PATHS = {
 };
 
 const PAGES_DIR = `${ PATHS.src }/templates/pages/`;
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.twig'));
+const PAGES = fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.twig'));
 
 const { NJK_DATA } = require(`${ PATHS.src }/data/`);
 
@@ -140,11 +140,11 @@ module.exports = {
         to: `${ PATHS.dist }`,
       },
     ]),
-    ...PAGES.map(page => new HtmlWebpackPlugin({
+    ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${ PAGES_DIR }/${ page }`,
       filename: `./${ page.replace(/\.twig/, '.html') }`,
       minify: false,
       hash: true,
-    }))
+    })),
   ],
 };
