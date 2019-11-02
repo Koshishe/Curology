@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const { default: ImageminPlugin } = require('imagemin-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const baseWebpackConfig = require('./webpack.base.conf');
 
@@ -14,23 +14,23 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
       svgo: {
         plugins: [
           {
-            removeViewBox: false
-          }
-        ]
+            removeViewBox: false,
+          },
+        ],
       },
       pngquant: {},
       plugins: [
-        ImageminMozjpeg()
+        ImageminMozjpeg(),
       ],
-      cacheFolder: baseWebpackConfig.externals.paths.cache
+      cacheFolder: baseWebpackConfig.externals.paths.cache,
     }),
     new webpack.ProgressPlugin({
       activeModules: true,
       entries: true,
       modules: true,
-      profile: true
-    })
-  ]
+      profile: true,
+    }),
+  ],
 });
 
 module.exports = new Promise((resolve) => {

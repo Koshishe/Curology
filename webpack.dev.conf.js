@@ -10,7 +10,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     contentBase: baseWebpackConfig.externals.paths.dist,
     overlay: true,
     port: 8081,
-    progress: true
+    progress: true,
   },
   module: {
     rules: [
@@ -18,16 +18,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         enforce: 'pre',
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({
-      filename: '[file].map'
+      filename: '[file].map',
     }),
-    new StylelintPlugin()
-  ]
+    new StylelintPlugin(),
+  ],
 });
 
 module.exports = new Promise((resolve) => {
