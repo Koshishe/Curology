@@ -121,6 +121,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Simple Workflow Welcome | Pages list',
+      templateParameters: {
+        PAGES,
+      },
       template: `${ PATHS.src }/index.ejs`,
       inject: false,
     }),
@@ -138,6 +141,7 @@ module.exports = {
       {
         from: `${ PATHS.src }/static`,
         to: `${ PATHS.dist }`,
+        ignore: ['.gitkeep'],
       },
     ]),
     ...PAGES.map((page) => new HtmlWebpackPlugin({

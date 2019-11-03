@@ -18,7 +18,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         enforce: 'pre',
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules|vendor-aux/,
       },
     ],
   },
@@ -26,7 +26,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map',
     }),
-    new StylelintPlugin(),
+    new StylelintPlugin({
+      files: ['**/*.{vue,scss}'],
+    }),
   ],
 });
 
