@@ -63,7 +63,7 @@ Templates to be [included](https://mozilla.github.io/nunjucks/templating.html#in
 Pages templates. You create new pages by creating files in this folder. Pages list is available under <http://localhost:8081> while running dev script or `index.html` in the `dist` folder after running build script. 
 #### vue-components
 All `.vue` files.
-### Additional features
+## Additional features
 #### Babel 7
 Babel is used as a JavaScript compiler. Config: `.babelrc`.
 #### Eslint
