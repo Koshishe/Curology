@@ -16,7 +16,7 @@ const PATHS = {
 const PAGES_DIR = `${ PATHS.src }/templates/pages/`;
 const PAGES = fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.twig'));
 
-const { NJK_DATA } = require(`${ PATHS.src }/data/`);
+const NJK_DATA = require(`${ PATHS.src }/data/`);
 
 module.exports = {
   externals: {
@@ -65,7 +65,7 @@ module.exports = {
             loader: 'njk-html-loader',
             options: {
               data: {
-                ...NJK_DATA,
+                ...NJK_DATA(),
                 src: PATHS.src,
               },
               root: `${ PATHS.src }/templates`,
