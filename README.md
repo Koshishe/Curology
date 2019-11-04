@@ -19,6 +19,10 @@ Build for production:
 ```bash
 npm run build
 ```
+Get a full fake REST API with data from `data/json` directory using [json-server](https://github.com/typicode/json-server):
+```bash
+npm run json-server
+```
 ## Directory Structure
 ### cache
 Used by [imagemin-webpack-plugin](https://github.com/Klathmon/imagemin-webpack-plugin) to cache already minified images. On next run plugin will check for the cached images first. If cached image exists it will simply use that one. Otherwise image will be optimised and written to the folder for later builds.
