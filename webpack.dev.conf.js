@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
@@ -28,6 +29,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }),
     new StylelintPlugin({
       files: ['**/*.{vue,scss,twig}'],
+    }),
+    new ExtraWatchWebpackPlugin({
+      dirs: [`${ baseWebpackConfig.externals.paths.src }/scss`],
     }),
   ],
 });
