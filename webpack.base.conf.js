@@ -64,7 +64,10 @@ module.exports = {
           {
             loader: 'njk-html-loader',
             options: {
-              data: NJK_DATA,
+              data: {
+                ...NJK_DATA,
+                src: PATHS.src,
+              },
               root: `${ PATHS.src }/templates`,
             },
           },

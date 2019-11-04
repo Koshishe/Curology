@@ -27,7 +27,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: '[file].map',
     }),
     new StylelintPlugin({
-      files: ['**/*.{vue,scss}'],
+      files: ['**/*.{vue,scss,twig}'],
     }),
   ],
 });
