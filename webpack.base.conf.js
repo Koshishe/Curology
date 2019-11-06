@@ -77,7 +77,7 @@ module.exports = {
         test: /\.woff(2)?$/,
         loader: 'file-loader',
         options: {
-          publicPath: '../fonts/',
+          publicPath: (url, resourcePath) => `../${ path.relative(PATHS.src, resourcePath).replace(/\\/g, '/') }`,
           name: '[name].[ext]',
           emitFile: false,
         },
