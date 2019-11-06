@@ -86,7 +86,7 @@ module.exports = {
         test: /\.png|jp(e)?g|gif|svg$/i,
         loader: 'file-loader',
         options: {
-          publicPath: '../img/',
+          publicPath: (url, resourcePath) => `../${ path.relative(PATHS.src, resourcePath).replace(/\\/g, '/') }`,
           name: '[name].[ext]',
           emitFile: false,
         },
@@ -149,7 +149,7 @@ module.exports = {
     ]),
     ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${ PAGES_DIR }/${ page }`,
-      filename: `./${ page.replace(/\.twig/, '.html') }`,
+      filename: `./html/${ page.replace(/\.twig/, '.html') }`,
       minify: false,
       hash: true,
     })),
