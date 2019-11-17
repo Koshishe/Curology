@@ -143,3 +143,8 @@
   break-inside: avoid;
   page-break-inside: avoid;
 }
+
+@mixin true-vh($property, $value) {
+  #{$property}: #{strip-unit($value)}vh;
+  #{$property}: calc(var(--vh, 1vh) * #{strip-unit($value)});
+}
