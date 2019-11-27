@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs');
+const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const GlobImporter = require('node-sass-glob-importer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -14,7 +14,7 @@ const PATHS = {
 };
 
 const PAGES_DIR = `${ PATHS.src }/templates/pages/`;
-const PAGES = fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.twig'));
+const PAGES = glob.sync(`${ PAGES_DIR }**/*.twig`).map((page) => path.relative(PAGES_DIR, page).replace(/\\/g, '/'));
 
 const NJK_DATA = require(`${ PATHS.src }/data/`);
 
