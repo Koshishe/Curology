@@ -10,7 +10,7 @@
   <ul>
     <% PAGES.forEach(function(page){ %>
       <li>
-        <a href="html/<%= page.replace(/\.twig/, '.html') %>"><%= page.replace(/\.twig/, '') %></a>
+        <a href="/<%= page.replace(/\.twig/, '.html') %>"><%= page.replace(/\.twig/, '') %></a>
       </li>
     <% }); %>
     <!--
