@@ -12,6 +12,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     overlay: true,
     port: 8081,
     progress: true,
+    hot: true,
+  },
+  output: {
+    publicPath: '/',
   },
   module: {
     rules: [
