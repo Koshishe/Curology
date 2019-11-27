@@ -89,6 +89,7 @@ module.exports = {
           publicPath: (url, resourcePath) => `../${ path.relative(PATHS.src, resourcePath).replace(/\\/g, '/') }`,
           name: '[name].[ext]',
           emitFile: false,
+          esModule: false,
         },
       },
       {
