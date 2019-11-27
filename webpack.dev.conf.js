@@ -10,9 +10,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     contentBase: baseWebpackConfig.externals.paths.dist,
     overlay: true,
+    host: '0.0.0.0',
     port: 8081,
     progress: true,
     hot: true,
+    index: 'page-list.html',
   },
   output: {
     publicPath: '/',

@@ -133,6 +133,7 @@ module.exports = {
         PAGES,
       },
       template: `${ PATHS.src }/index.ejs`,
+      filename: 'page-list.html',
       inject: false,
     }),
     new CopyWebpackPlugin([
