@@ -156,7 +156,7 @@ module.exports = {
     ]),
     ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${ PAGES_DIR }/${ page }`,
-      filename: `./${ page.replace(/\.twig/, '.html') }`,
+      filename: `./html/${ page.replace(/\.twig/, '.html') }`,
       minify: false,
       hash: true,
     })),
