@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
@@ -9,6 +10,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: baseWebpackConfig.externals.paths.dist,
+    watchContentBase: true,
     overlay: true,
     host: '0.0.0.0',
     port: 8081,
@@ -39,6 +41,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new ExtraWatchWebpackPlugin({
       dirs: [`${ baseWebpackConfig.externals.paths.src }/scss`],
     }),
+    new HtmlWebpackHarddiskPlugin(),
   ],
 });
 
