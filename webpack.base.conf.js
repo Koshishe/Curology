@@ -5,6 +5,7 @@ const GlobImporter = require('node-sass-glob-importer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, './src'),
@@ -132,6 +133,7 @@ module.exports = {
     },
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
@@ -145,7 +147,6 @@ module.exports = {
       template: `${ PATHS.src }/index.ejs`,
       filename: 'page-list.html',
       inject: false,
-      alwaysWriteToDisk: false,
     }),
     new CopyWebpackPlugin([
       {
@@ -169,7 +170,6 @@ module.exports = {
       filename: `./html/${ page.replace(/\.twig/, '.html') }`,
       minify: false,
       hash: true,
-      alwaysWriteToDisk: true,
     })),
   ],
 };

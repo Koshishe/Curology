@@ -2,13 +2,11 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const { default: ImageminPlugin } = require('imagemin-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const buildWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
   plugins: [
-    new CleanWebpackPlugin(),
     new ImageminPlugin({
       test: /\.png|jp(e)?g|gif|svg$/i,
       optipng: null,

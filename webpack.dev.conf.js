@@ -1,17 +1,17 @@
-const fs = require('fs');
-const glob = require('glob');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
-const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: baseWebpackConfig.externals.paths.dist,
+    contentBase: [
+      baseWebpackConfig.externals.paths.dist,
+      `${ baseWebpackConfig.externals.paths.src }/templates`,
+    ],
     watchContentBase: true,
     overlay: true,
     host: '0.0.0.0',
@@ -19,11 +19,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     progress: true,
     hot: true,
     index: 'page-list.html',
-    before() {
-      glob.sync(`${ baseWebpackConfig.externals.paths.dist }/**/*.*`).forEach((file) => {
-        fs.unlinkSync(file);
-      });
-    },
   },
   output: {
     publicPath: '/',
@@ -48,7 +43,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new ExtraWatchWebpackPlugin({
       dirs: [`${ baseWebpackConfig.externals.paths.src }/scss`],
     }),
-    new HtmlWebpackHarddiskPlugin(),
   ],
 });
 
