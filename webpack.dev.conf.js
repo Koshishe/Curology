@@ -1,3 +1,5 @@
+const fs = require('fs');
+const glob = require('glob');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const StylelintPlugin = require('stylelint-webpack-plugin');
@@ -17,6 +19,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     progress: true,
     hot: true,
     index: 'page-list.html',
+    before() {
+      glob.sync(`${ baseWebpackConfig.externals.paths.dist }/**/*.*`).forEach((file) => {
+        fs.unlinkSync(file);
+      });
+    },
   },
   output: {
     publicPath: '/',
