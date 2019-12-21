@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
+const del = require('del');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
@@ -19,6 +20,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     progress: true,
     hot: true,
     index: 'page-list.html',
+    before() {
+      del.sync([baseWebpackConfig.externals.paths.dist]);
+    },
   },
   output: {
     publicPath: '/',
