@@ -28,6 +28,7 @@ module.exports = {
   output: {
     path: PATHS.dist,
     filename: 'js/[name].bundle.js',
+    pathinfo: false,
   },
   optimization: {
     splitChunks: {
@@ -105,6 +106,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: true,
+              importLoaders: 1,
             },
           },
           {

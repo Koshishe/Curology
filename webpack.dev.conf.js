@@ -42,7 +42,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: '[file].map',
     }),
     new StylelintPlugin({
-      files: ['**/*.{vue,scss,twig}'],
+      files: [
+        'src/scss/**/*.scss',
+        'src/vue-components/**/*.vue',
+      ],
     }),
     new ExtraWatchWebpackPlugin({
       dirs: [`${ baseWebpackConfig.externals.paths.src }/scss`],
