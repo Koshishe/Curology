@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
 const del = require('del');
+const GlobImporter = require('node-sass-glob-importer');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
@@ -34,6 +35,34 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         exclude: /node_modules|vendor-aux/,
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              sassOptions: {
+                importer: GlobImporter(),
+              },
+            },
+          },
+        ],
       },
     ],
   },

@@ -1,7 +1,5 @@
 const path = require('path');
 const glob = require('glob');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const GlobImporter = require('node-sass-glob-importer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
@@ -93,39 +91,6 @@ module.exports = {
           esModule: false,
         },
       },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: true,
-            },
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              importLoaders: 1,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              sassOptions: {
-                importer: GlobImporter(),
-              },
-            },
-          },
-        ],
-      },
     ],
   },
   resolve: {
@@ -137,10 +102,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      ignoreOrder: true,
-    }),
     new HtmlWebpackPlugin({
       title: 'Simple Workflow Welcome | Pages list',
       templateParameters: {

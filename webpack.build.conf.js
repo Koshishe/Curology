@@ -1,11 +1,40 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const GlobImporter = require('node-sass-glob-importer');
 const { default: ImageminPlugin } = require('imagemin-webpack-plugin');
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const baseWebpackConfig = require('./webpack.base.conf');
 
 const buildWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                importer: GlobImporter(),
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
   plugins: [
     new ImageminPlugin({
       test: /\.png|jp(e)?g|gif|svg$/i,
@@ -23,6 +52,10 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
         ImageminMozjpeg(),
       ],
       cacheFolder: baseWebpackConfig.externals.paths.cache,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+      ignoreOrder: true,
     }),
     new webpack.ProgressPlugin({
       activeModules: true,
