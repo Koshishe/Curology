@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const packageJSON = require('./package');
 
 const PATHS = {
   src: path.join(__dirname, './src'),
@@ -105,9 +106,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Simple Workflow Welcome | Pages list',
       templateParameters: {
-        PAGES,
+        PROJECT_NAME: packageJSON.name,
+        PAGES: PAGES.map((page) => page.replace(/\.twig/, '.html')),
       },
-      template: `${ PATHS.src }/index.ejs`,
+      template: `${ PATHS.src }/index.html`,
       filename: 'page-list.html',
       inject: false,
     }),
