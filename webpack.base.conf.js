@@ -109,7 +109,7 @@ module.exports = {
         PROJECT_NAME: packageJSON.name,
         PAGES: PAGES.map((page) => page.replace(/\.twig/, '.html')),
       },
-      template: `${ PATHS.src }/index.html`,
+      template: `${ PATHS.src }/index.ejs`,
       filename: 'page-list.html',
       inject: false,
     }),
