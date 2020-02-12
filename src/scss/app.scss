@@ -4,5 +4,16 @@
 @import 'base/supports/reset';
 @import 'base/animations';
 @import 'base/global';
-@import 'vendor/includes';
-@import 'modules/*.scss';
+@import 'vendor';
+
+// Utils
+@import 'utils/*.scss';
+
+// Layout
+@import 'layout/*.scss';
+
+// Block
+@import 'block/*.scss';
+
+// Section
+@import 'section/*.scss';

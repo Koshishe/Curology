@@ -1,13 +1,29 @@
-/**
- * Remove the unit of a length
- * @param {Number} $number - Number to remove unit from
- * @return {Number} - Unitless number
- */
+// Перевод значений в проценты.
+// $value - значение,
+// $max-px - значение от которого высчитывается процент
+// width: percent(678, 1920);
+@function percent($value, $max-value) {
+  @return ($value * 100%) / $max-value;
+}
+
+// возвращает line-height в относительной величине
+// line-height: lh(14, 19.2);
+@function lh($fz, $lh) {
+  @return $lh / $fz;
+}
+
+@function img-url($image) {
+  @return url('#{$image-path}#{$image}');
+}
+
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
-  
+
   @return $number;
 }
 

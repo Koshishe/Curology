@@ -1,4 +1,39 @@
-// orientations
+@mixin below($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin above($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin between($min-width, $width) {
+  @media screen and (min-width: $min-width) and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin below-height($height) {
+  @media screen and (max-height: $height) {
+    @content;
+  }
+}
+
+@mixin above-height($height) {
+  @media screen and (min-height: $height) {
+    @content;
+  }
+}
+
+@mixin between-height($min-height, $height) {
+  @media screen and (min-height: $min-height) and (max-height: $height) {
+    @content;
+  }
+}
+
 @mixin landscape {
   @media only screen and (orientation: landscape) {
     @content;
@@ -7,6 +42,14 @@
 
 @mixin portrait {
   @media only screen and (orientation: portrait) {
+    @content;
+  }
+}
+
+// retina, also available as +hdpi
+@mixin retina {
+  /* stylelint-disable-next-line */
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
     @content;
   }
 }
