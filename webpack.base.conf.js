@@ -107,7 +107,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Simple Workflow Welcome | Pages list',
       templateParameters: {
         PROJECT_NAME: packageJSON.name,
         PAGES: PAGES.map((page) => page.replace(/\.twig/, '.html')),
