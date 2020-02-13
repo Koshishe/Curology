@@ -34,7 +34,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           name: 'vendors',
-          test: /node_modules|vendor-aux/,
+          test: /node_modules|vendor/,
           chunks: 'all',
           enforce: true,
         },
@@ -46,7 +46,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: '/node_modules/',
+        options: {
+          cacheDirectory: true,
+        },
+        exclude: '/node_modules|vendor/',
       },
       {
         test: /\.vue$/,

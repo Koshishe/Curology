@@ -34,7 +34,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         enforce: 'pre',
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
-        exclude: /node_modules|vendor-aux/,
+        exclude: /node_modules|vendor/,
       },
       {
         test: /\.scss$/,

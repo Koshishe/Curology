@@ -43,7 +43,7 @@ Script files split into directories:
 Your custom script files typically imported into `app.js`.
 ##### utils
 Handy js utilities and functions.
-##### vendor-aux
+##### vendor
 Vendor scripts which do not come as a [npm](https://www.npmjs.com/) package.
 #### scss
 Style files split into directories:
@@ -71,7 +71,7 @@ All `.vue` files.
 #### Babel 7
 Babel is used as a JavaScript compiler. Config: `.babelrc`.
 #### Eslint
-Used for linting `.js` and `.vue` files except `node_modules` and `vendor-aux` directories. Config: `.eslintrc.js`.
+Used for linting `.js` and `.vue` files except `node_modules` and `vendor` directories. Config: `.eslintrc.js`.
 #### Stylelint
 Used for linting `.scss` and `.vue` files. Config: `.stylelintrc`.
 #### Postcss
