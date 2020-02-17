@@ -39,7 +39,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.0",
+    "eslint-plugin-vue": "^6.2.1",
     "extra-watch-webpack-plugin": "^1.0.3",
     "file-loader": "^5.0.2",
     "glob": "^7.1.6",
