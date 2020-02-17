@@ -49,7 +49,7 @@ module.exports = {
         options: {
           cacheDirectory: true,
         },
-        exclude: '/node_modules|vendor/',
+        exclude: /node_modules|vendor/,
       },
       {
         test: /\.vue$/,
