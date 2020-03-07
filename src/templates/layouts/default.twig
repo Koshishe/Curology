@@ -20,11 +20,13 @@
     <meta property="og:image:height" content="200">
 </head>
 <body class="{{ pageClass }}">
-{% include "modules/header.twig" %}
-<main class="_g-wrapper">
-    {% block content %} {% endblock %}
-</main>
-{% include "modules/footer.twig" %}
-{% include "modules/site-preloader.twig" %}
+<div class="l-wrapper">
+    {% include "modules/site-header.twig" %}
+    <main class="l-main">
+        {% block content %}{% endblock %}
+    </main>
+    {% include "modules/site-footer.twig" %}
+    {% include "modules/site-preloader.twig" %}
+</div>
 </body>
 </html>

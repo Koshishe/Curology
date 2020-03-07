@@ -1,3 +1,5 @@
+$b: '.g';
+
 html {
   font-size: #{$root-font-size}px;
 }
@@ -15,37 +17,26 @@ body {
   text-rendering: geometricPrecision;
 }
 
-::selection {
-  background: rgba($accent-base, 0.3);
-  text-shadow: none;
+a {
+  transition: $g-transition;
 }
 
-._g-font-alt {
+#{$b}-font-alt {
   font-family: $font-alt;
 }
 
-._g-alt-bg {
+#{$b}-alt-bg {
   background-color: $bg-alt;
 }
 
-._g-tab {
+#{$b}-tab {
   &._active {
     cursor: default;
   }
-}
-
-._g-tab-content {
-  &:not(._active) {
-    display: none;
-  }
-}
-
-._g-inline-svg {
-  position: relative;
-  display: block;
-  width: 100%;
-
-  svg {
-    @include fill-abs();
+  
+  &-content {
+    &:not(._active) {
+      display: none;
+    }
   }
 }
