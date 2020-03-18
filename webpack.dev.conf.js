@@ -63,6 +63,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
               sassOptions: {
                 importer: GlobImporter(),
               },
+              // prependData: '@import "~/scss/base/_includes.scss";', /* for vue components */
             },
           },
         ],
