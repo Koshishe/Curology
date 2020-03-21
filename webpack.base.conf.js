@@ -58,7 +58,12 @@ module.exports = {
       {
         test: /\.twig$/,
         use: [
-          'html-loader',
+          {
+            loader: 'html-loader',
+            options: {
+              minimize: false,
+            },
+          },
           {
             loader: 'njk-html-loader',
             options: {
