@@ -1,5 +1,5 @@
-{% macro inlineSvg(name, path) %}
-    <div class="_g-inline-svg svg-{{ name }}">
+{% macro inlineSvg(name, path, classes) %}
+    <div class="svg svg-{{ name }}{% if classes %} {{ classes }}{% endif %}">
         {% include path %}
     </div>
 {% endmacro %}
