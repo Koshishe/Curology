@@ -44,7 +44,7 @@
     "file-loader": "^6.0.0",
     "glob": "^7.1.6",
     "html-loader": "^1.0.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^4.0.1",
     "json-server": "^0.16.1",
     "mini-css-extract-plugin": "^0.9.0",
     "njk-html-loader": "^1.2.0",
