@@ -1,8 +1,9 @@
 # Dependencies
 node_modules
 
-# Cache folders
+# Cache files and folders
 cache
+.stylelintcache
 
 # Dist folders
 dist

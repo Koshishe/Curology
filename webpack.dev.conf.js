@@ -79,6 +79,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         'src/scss/**/*.scss',
         'src/vue-components/**/*.vue',
       ],
+      cache: true,
     }),
     new ExtraWatchWebpackPlugin({
       dirs: [`${ baseWebpackConfig.externals.paths.src }/scss`],
