@@ -8,8 +8,7 @@
     <meta charset="UTF-8">
     <title><%= PROJECT_NAME %> | Pages list</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico">
     <meta name="theme-color" content="<%= PROJECT_COLOR %>">
     <meta name="msapplication-navbutton-color" content="<%= PROJECT_COLOR %>">
@@ -241,7 +240,6 @@
         header {
             overflow: hidden;
             line-height: 1;
-            /*height: 100px;*/
             height: 90px;
             position: fixed;
             top: 0;
@@ -496,7 +494,7 @@
     if(date.getDate()<10){ day = '0' + (date.getDate());}
     else{ day = date.getDate(); }
     %>
-    <div class="header__updated"><em><%= PROJECT_NAME %></em>  updated <%= day %>.<%= month %>.<%= date.getFullYear() %>, <%= PAGES.length %> pages</div>
+    <div class="header__updated"><em><%= PROJECT_NAME %></em>  updated <%= day %>.<%= month %>.<%= date.getFullYear() %>, <%= PAGES.length %> page<% if (PAGES.length > 1) { %>s<% } %></div>
     <nav class="types">
         <button data-mode="mobile" data-width="320">
             <svg class="icon icon-mobile"><use xlink:href="#icon-mobile"></use></svg>
@@ -609,7 +607,7 @@
       var iheight = iframe.offsetHeight;
       var scaleV = pheight/iheight;
       var scaleH = pwidth/iwidth;
-      if(mode=='mobile'){
+      if(mode === 'mobile'){
         iframe.style.transform = 'scale('+ 1 +')';
         iframe.style.height =  pheight + 'px';
 
