@@ -13,7 +13,6 @@
       ]
     }],
     "declaration-empty-line-before": "never",
-    "function-calc-no-invalid": null,
     "indentation": 2,
     "no-descending-specificity": null,
     "no-eol-whitespace": [
