@@ -1,5 +1,5 @@
 import dispatcher from './dispatcher';
-import { throttle } from 'throttle-debounce';
+import throttle from '../utils/throttle';
 
 export default {
   size: {
