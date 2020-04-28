@@ -1,6 +1,7 @@
 import dispatcher from './dispatcher';
+import documentReady from '../utils/documentReady';
 
-export default {
+const sitePreloader = {
   el: null,
   images: [],
   backgroundEls: [],
@@ -43,7 +44,7 @@ export default {
       type: 'site-preloader:hiding',
     });
 
-    preloader.style.transition = `opacity ${ transition }ms ease, visibility ${ transition }ms ease`;
+    preloader.style.transition = `opacity ${transition}ms ease, visibility ${transition}ms ease`;
     preloader.classList.add('_loaded');
     document.body.classList.add('_site-loaded');
 
@@ -65,3 +66,9 @@ export default {
     }
   },
 };
+
+documentReady(() => {
+  sitePreloader.init();
+});
+
+export default sitePreloader;

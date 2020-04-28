@@ -5,7 +5,7 @@ import lozad from 'lozad';
 export default {
   init() {
     const options = {
-      rootMargin: `${ document.documentElement.clientHeight }px 0px`,
+      rootMargin: `${document.documentElement.clientHeight}px 0px`,
     };
 
     const pictureObserver = lozad('.js-lazy-img', options);

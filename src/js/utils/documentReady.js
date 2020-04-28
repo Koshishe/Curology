@@ -8,7 +8,7 @@ export default function documentReady(fn) {
 
   // If document is already loaded, run method
   if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    return fn();
+    fn();
   }
 
   // Otherwise, wait until document is loaded

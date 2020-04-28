@@ -8,7 +8,7 @@ export default function documentLoaded(fn) {
 
   // If document is already loaded, run method
   if (document.readyState === 'complete') {
-    return fn();
+    fn();
   }
 
   // Otherwise, wait until document is loaded
