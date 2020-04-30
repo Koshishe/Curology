@@ -12,7 +12,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     contentBase: [
       baseWebpackConfig.externals.paths.dist,
-      `${ baseWebpackConfig.externals.paths.src }/templates`,
+      `${baseWebpackConfig.externals.paths.src}/templates`,
     ],
     watchContentBase: true,
     overlay: true,
@@ -83,7 +83,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       cache: true,
     }),
     new ExtraWatchWebpackPlugin({
-      dirs: [`${ baseWebpackConfig.externals.paths.src }/scss`],
+      dirs: [`${baseWebpackConfig.externals.paths.src}/scss`],
     }),
   ],
 });

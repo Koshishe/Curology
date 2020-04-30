@@ -15,10 +15,24 @@ module.exports = {
     'plugin:vue/recommended'
   ],
   plugins: [
+    'import',
     'vue'
   ],
   rules: {
     'vue/html-self-closing': 0,
     'vue/no-v-html': 'off'
-  }
+  },
+  overrides: [
+    {
+      files: [
+        'postcss.config.js',
+        'webpack.*.conf.js'
+      ],
+      rules: {
+        'global-require': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/no-dynamic-require': 'off'
+      }
+    }
+  ]
 };

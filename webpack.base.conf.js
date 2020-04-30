@@ -12,10 +12,10 @@ const PATHS = {
   cache: path.join(__dirname, './cache'),
 };
 
-const PAGES_DIR = `${ PATHS.src }/templates/pages/`;
-const PAGES = glob.sync(`${ PAGES_DIR }**/*.twig`).map((page) => path.relative(PAGES_DIR, page).replace(/\\/g, '/'));
+const PAGES_DIR = `${PATHS.src}/templates/pages/`;
+const PAGES = glob.sync(`${PAGES_DIR}**/*.twig`).map((page) => path.relative(PAGES_DIR, page).replace(/\\/g, '/'));
 
-const NJK_DATA = require(`${ PATHS.src }/data/`);
+const NJK_DATA = require(`${PATHS.src}/data/`);
 
 module.exports = {
   externals: {
@@ -71,7 +71,7 @@ module.exports = {
                 ...NJK_DATA(),
                 src: PATHS.src,
               },
-              root: `${ PATHS.src }/templates`,
+              root: `${PATHS.src}/templates`,
             },
           },
         ],
@@ -80,7 +80,7 @@ module.exports = {
         test: /\.woff(2)?$/,
         loader: 'file-loader',
         options: {
-          publicPath: (url, resourcePath) => `../${ path.relative(PATHS.src, resourcePath).replace(/\\/g, '/') }`,
+          publicPath: (url, resourcePath) => `../${path.relative(PATHS.src, resourcePath).replace(/\\/g, '/')}`,
           name: '[name].[ext]',
           emitFile: false,
         },
@@ -89,7 +89,7 @@ module.exports = {
         test: /\.png|jp(e)?g|gif|svg$/i,
         loader: 'file-loader',
         options: {
-          publicPath: (url, resourcePath) => `../${ path.relative(PATHS.src, resourcePath).replace(/\\/g, '/') }`,
+          publicPath: (url, resourcePath) => `../${path.relative(PATHS.src, resourcePath).replace(/\\/g, '/')}`,
           name: '[name].[ext]',
           emitFile: false,
           esModule: false,
@@ -111,30 +111,30 @@ module.exports = {
         PROJECT_NAME: packageJSON.name,
         PAGES: PAGES.map((page) => page.replace(/\.twig/, '.html')),
       },
-      template: `${ PATHS.src }/index.ejs`,
+      template: `${PATHS.src}/index.ejs`,
       filename: 'page-list.html',
       inject: false,
     }),
     new CopyWebpackPlugin([
       {
-        from: `${ PATHS.src }/fonts`,
-        to: `${ PATHS.dist }/fonts`,
+        from: `${PATHS.src}/fonts`,
+        to: `${PATHS.dist}/fonts`,
         ignore: ['.gitkeep'],
       },
       {
-        from: `${ PATHS.src }/img`,
-        to: `${ PATHS.dist }/img`,
+        from: `${PATHS.src}/img`,
+        to: `${PATHS.dist}/img`,
         ignore: ['.gitkeep'],
       },
       {
-        from: `${ PATHS.src }/static`,
-        to: `${ PATHS.dist }`,
+        from: `${PATHS.src}/static`,
+        to: `${PATHS.dist}`,
         ignore: ['.gitkeep'],
       },
     ]),
     ...PAGES.map((page) => new HtmlWebpackPlugin({
-      template: `${ PAGES_DIR }/${ page }`,
-      filename: `./html/${ page.replace(/\.twig/, '.html') }`,
+      template: `${PAGES_DIR}/${page}`,
+      filename: `./html/${page.replace(/\.twig/, '.html')}`,
       minify: false,
       hash: true,
     })),
