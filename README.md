@@ -19,7 +19,7 @@ Build for production:
 ```bash
 npm run build
 ```
-Get a full fake REST API with data from `data/json` directory using [json-server](https://github.com/typicode/json-server):
+Get a full fake REST API with data from `data/json-server.json` file using [json-server](https://github.com/typicode/json-server):
 ```bash
 npm run json-server
 ```
@@ -31,8 +31,7 @@ Compiled files after the build script.
 ### src
 All source files except packages imported from node_modules. This is the directory you should work in. In the root of this folder you can find webpack entry point file `index.js` and pages list template `index.ejs`.
 #### data
-##### json
-All `.json` files which will be merged into one data object and passed to [njk-html-loader](https://github.com/nameless19922/njk-html-loader) to use for all templates in the loader. Unfortunately, without hot reload for now.
+All `.json` files that can be included with [nunjucks-includeData](https://www.npmjs.com/package/nunjucks-includeData) as data in all templates.
 #### fonts
 Project fonts.
 #### img

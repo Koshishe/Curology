@@ -13,8 +13,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     contentBase: [
       baseWebpackConfig.externals.paths.dist,
       `${baseWebpackConfig.externals.paths.src}/templates`,
+      `${baseWebpackConfig.externals.paths.src}/data`,
     ],
     watchContentBase: true,
+    watchOptions: {
+      poll: true,
+    },
     overlay: true,
     host: '0.0.0.0',
     port: 8081,

@@ -15,8 +15,6 @@ const PATHS = {
 const PAGES_DIR = `${PATHS.src}/templates/pages/`;
 const PAGES = glob.sync(`${PAGES_DIR}**/*.twig`).map((page) => path.relative(PAGES_DIR, page).replace(/\\/g, '/'));
 
-const NJK_DATA = require(`${PATHS.src}/data/`);
-
 module.exports = {
   externals: {
     paths: PATHS,
@@ -68,10 +66,12 @@ module.exports = {
             loader: 'njk-html-loader',
             options: {
               data: {
-                ...NJK_DATA(),
                 src: PATHS.src,
               },
-              root: `${PATHS.src}/templates`,
+              root: [
+                `${PATHS.src}/templates`,
+                `${PATHS.src}/data`,
+              ],
             },
           },
         ],

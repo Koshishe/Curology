@@ -1,5 +1,7 @@
 {% from "components/example.twig" import example %}
 
+{% includeData 'foo.json' as foo %}
+
 {# COMPONENT / LOOP #}
 {% for item in exampleItems %}
     {{
