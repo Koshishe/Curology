@@ -15,6 +15,13 @@ const PATHS = {
 const PAGES_DIR = `${PATHS.src}/templates/pages/`;
 const PAGES = glob.sync(`${PAGES_DIR}**/*.twig`).map((page) => path.relative(PAGES_DIR, page).replace(/\\/g, '/'));
 
+const fileLoaderImagesOptions = {
+  publicPath: (url, resourcePath) => `../${path.relative(PATHS.src, resourcePath).replace(/\\/g, '/')}`,
+  name: '[name].[ext]',
+  emitFile: false,
+  esModule: false,
+};
+
 module.exports = {
   externals: {
     paths: PATHS,
@@ -86,14 +93,22 @@ module.exports = {
         },
       },
       {
-        test: /\.png|jp(e)?g|gif|svg$/i,
+        test: /\.png|jp(e)?g|gif$/i,
         loader: 'file-loader',
-        options: {
-          publicPath: (url, resourcePath) => `../${path.relative(PATHS.src, resourcePath).replace(/\\/g, '/')}`,
-          name: '[name].[ext]',
-          emitFile: false,
-          esModule: false,
-        },
+        options: fileLoaderImagesOptions,
+      },
+      {
+        test: /\.svg$/i,
+        oneOf: [
+          {
+            resourceQuery: /inline/,
+            loader: 'vue-svg-loader',
+          },
+          {
+            loader: 'file-loader',
+            options: fileLoaderImagesOptions,
+          },
+        ],
       },
     ],
   },

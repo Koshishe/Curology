@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   root: true,
   env: {
@@ -34,5 +36,18 @@ module.exports = {
         'import/no-dynamic-require': 'off'
       }
     }
-  ]
+  ],
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: {
+          resolve: {
+            alias: {
+              '~': path.join(__dirname, './src')
+            }
+          }
+        }
+      }
+    }
+  }
 };
