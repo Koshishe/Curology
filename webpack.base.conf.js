@@ -130,23 +130,34 @@ module.exports = {
       filename: 'page-list.html',
       inject: false,
     }),
-    new CopyWebpackPlugin([
-      {
-        from: `${PATHS.src}/fonts`,
-        to: `${PATHS.dist}/fonts`,
-        ignore: ['.gitkeep'],
-      },
-      {
-        from: `${PATHS.src}/img`,
-        to: `${PATHS.dist}/img`,
-        ignore: ['.gitkeep'],
-      },
-      {
-        from: `${PATHS.src}/static`,
-        to: `${PATHS.dist}`,
-        ignore: ['.gitkeep'],
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: `${PATHS.src}/fonts`,
+          to: `${PATHS.dist}/fonts`,
+          noErrorOnMissing: true,
+          globOptions: {
+            ignore: ['**/.gitkeep'],
+          },
+        },
+        {
+          from: `${PATHS.src}/img`,
+          to: `${PATHS.dist}/img`,
+          noErrorOnMissing: true,
+          globOptions: {
+            ignore: ['**/.gitkeep'],
+          },
+        },
+        {
+          from: `${PATHS.src}/static`,
+          to: `${PATHS.dist}`,
+          noErrorOnMissing: true,
+          globOptions: {
+            ignore: ['**/.gitkeep'],
+          },
+        },
+      ],
+    }),
     ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./html/${page.replace(/\.twig/, '.html')}`,
