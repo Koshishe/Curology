@@ -69,7 +69,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
                 sourceMapRoot: '/',
                 webpackImporter: false,
               },
-              prependData: '@import "~/scss/base/_includes.scss";',
+              additionalData: '@import "~/scss/base/_includes.scss";',
             },
           },
         ],
