@@ -79,6 +79,10 @@ module.exports = {
                 `${PATHS.src}/templates`,
                 `${PATHS.src}/data`,
               ],
+              configuration: {
+                autoescape: false,
+                trimBlocks: true,
+              },
             },
           },
         ],
