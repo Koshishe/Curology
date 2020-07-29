@@ -1,1 +1,21 @@
-<header class="site-header"></header>
+<div class="site-header">
+    <div class="site-header__wrapper l-outer-wight l-inner-padding">
+        <div class="site-header__content">
+            <div class="site-header__logo">
+                {{ inc.inlineSvg('site-header__logo', '../img/icons/logo.svg') }}
+            </div>
+            <div class="site-header__interact">
+                <div class="site-header__interact-search">
+                    <input id="searchInput" type="text" class="site-header__interact-search-input">
+                    <label for="searchInput" class="site-header__interact-search-label">Search</label>
+                </div>
+                <div class="site-header__interact-cart">
+                    {{ inc.inlineSvg('site-header__cart', '../img/icons/cart.svg') }}
+                </div>
+                <div class="site-header__interact-menu">
+                    {{ inc.inlineSvg('site-header__menu', '../img/icons/menu.svg') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

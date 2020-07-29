@@ -1,6 +1,6 @@
 // Size
-$outer-w: 1400px;
-$inner-pd: 120px;
+$outer-w: 1920px;
+$inner-pd: 86px;
 $inner-pd-ld: 40px;
 $inner-pd-tab: 25px;
 $inner-pd-mob: 15px;
@@ -8,15 +8,23 @@ $inner-pd-mob: 15px;
 // Colors
 $black-true: #000;
 $white-true: #fff;
+$purple-dark: #574a97;
+$purple: #776fc3;
+$purple-light: #e7ddf2;
+$purple-extra-light: #988fbb;
+$purple-extra-light-2: #c9c4ff;
+$blue: #e5f6ff;
 
 // UI Colors
 $color-base: $white-true;
-$accent-base: #1a8cff;
-$action-base: #f42f3e;
-$text-base: #3b4256;
-$border-base: #e6ecf2;
-$link-base: #1964b1;
-$shadow-base: #004484;
+$accent-base: $purple;
+$action-base: $purple-dark;
+$text-base: #473889;
+$border-base: #e7e7e7;
+$link-base: $accent-base;
+$shadow-base: #91b1bc;
+$shadow-2: #a691bc;
+$shadow-3: #a0bbc8;
 $site-preloader-inner: $accent-base;
 $site-preloader-bg: $white-true;
 
