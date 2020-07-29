@@ -81,34 +81,13 @@ $b: '.site-header';
 
     &-menu {
       @include clickable();
+      @include icon-hover();
       flex: 0 0 auto;
-      position: relative;
       margin-left: rem(70px);
 
       & .svg {
         width: rem(72px);
         height: rem(72px);
-      }
-
-      &::before {
-        content: "";
-        opacity: 0;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        height: rem(10px);
-        width: 50%;
-        background-color: $shadow-3;
-        filter: blur(rem(20px));
-        border-radius: rem(58px);
-        transition: $g-transition;
-      }
-
-      &:hover {
-        &::before {
-          opacity: 1;
-        }
       }
     }
   }

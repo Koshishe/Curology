@@ -1,0 +1,33 @@
+$b: '.hero';
+
+#{$b} {
+  &__content {
+    display: flex;
+  }
+
+  &__best {
+    &-headline {
+      display: flex;
+      align-items: center;
+    }
+
+    &-title {
+      font-size: rem(80px);
+      line-height: rem(92px);
+      font-weight: bold;
+    }
+
+    &-sort {
+      @include icon-hover();
+      @include clickable();
+      padding: rem(29px) rem(25px);
+      border-radius: 50%;
+      background-color: $white-true;
+
+      & .svg {
+        width: rem(24px);
+        height: rem(14px);
+      }
+    }
+  }
+}
