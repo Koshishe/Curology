@@ -37,7 +37,7 @@ $b: '.s-main';
         width: 80%;
         border-bottom-left-radius: rem(56px);
         border-top-left-radius: rem(56px);
-        background-color: $blue;
+        background-color: $purple-extra-light-3;
       }
 
       &::after {
@@ -49,7 +49,7 @@ $b: '.s-main';
         width: rem(350px);
         border-bottom-right-radius: rem(56px);
         border-top-right-radius: rem(56px);
-        background-color: $blue;
+        background-color: $purple-extra-light-3;
         transform: skew(-10deg);
       }
     }
