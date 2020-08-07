@@ -131,7 +131,7 @@ module.exports = {
         PAGES: PAGES.map((page) => page.replace(/\.twig/, '.html')),
       },
       template: `${PATHS.src}/index.ejs`,
-      filename: 'page-list.html',
+      filename: 'index.html',
       inject: false,
     }),
     new CopyWebpackPlugin({
