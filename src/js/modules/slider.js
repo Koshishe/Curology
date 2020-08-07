@@ -7,9 +7,9 @@ export default {
 
   sliderInit() {
     const slider = new Swiper('.js-slider', {
-      direction: 'vertical',
       loop: false,
-      slidesPerView: '3',
+      slidesPerView: 3,
+      spaceBetween: 41,
 
       // Navigation arrows
       navigation: {
