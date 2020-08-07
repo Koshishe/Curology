@@ -1,6 +1,10 @@
 $b: '.site-header';
 
 #{$b} {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   padding-top: rem(38px);
 
   * svg {

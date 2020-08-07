@@ -8,7 +8,7 @@ const packageJSON = require('./package');
 
 const PATHS = {
   src: path.join(__dirname, './src'),
-  dist: path.join(__dirname, './docs'),
+  dist: path.join(__dirname, './dist'),
   cache: path.join(__dirname, './cache'),
 };
 
@@ -131,7 +131,7 @@ module.exports = {
         PAGES: PAGES.map((page) => page.replace(/\.twig/, '.html')),
       },
       template: `${PATHS.src}/index.ejs`,
-      filename: 'index.html',
+      filename: 'page-list.html',
       inject: false,
     }),
     new CopyWebpackPlugin({
