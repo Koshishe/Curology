@@ -63,6 +63,40 @@ $b: '.s-hero';
         flex: 0 0 auto;
         width: rem(398px);
       }
+
+      &-navigation {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+      }
+
+      &-prev,
+      &-next {
+        @include clickable();
+        width: 72px;
+        height: 72px;
+        padding: 26px 24px;
+        border-radius: 50%;
+        z-index: 1000;
+        transition: $g-transition;
+        border: 1px solid transparent;
+
+        &:hover,
+        &:focus {
+          border-color: $border-base;
+        }
+
+        svg {
+          width: 22px;
+          height: 18px;
+          fill: none;
+        }
+      }
+
+      &-next {
+        transform: rotate(180deg);
+      }
     }
   }
 

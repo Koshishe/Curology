@@ -10,8 +10,6 @@ export default {
       loop: false,
       slidesPerView: 3,
       spaceBetween: 41,
-
-      // Navigation arrows
       navigation: {
         nextEl: '.js-slider-next',
         prevEl: '.js-slider-prev',
