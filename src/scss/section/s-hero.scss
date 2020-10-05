@@ -5,6 +5,10 @@ $b: '.s-hero';
 
   &__content {
     display: flex;
+
+    @include tablet {
+      display: block;
+    }
   }
 
   &__best {
@@ -13,17 +17,6 @@ $b: '.s-hero';
     width: 75%;
     height: 100%;
     overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: rem(388px);
-      background: linear-gradient(268deg, $white-true, rgba(255, 255, 255, 0));
-      z-index: 1;
-    }
 
     &-headline {
       display: flex;
@@ -54,6 +47,18 @@ $b: '.s-hero';
     &-slider {
       width: 100%;
       padding-bottom: rem(80px);
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: rem(400px);
+        background: linear-gradient(265deg, $white-true 21%, rgba(255, 255, 255, 0) 100%);
+        z-index: 1;
+      }
 
       &-wrapper {
         display: flex;
@@ -66,7 +71,7 @@ $b: '.s-hero';
 
       &-navigation {
         position: absolute;
-        top: 0;
+        top: rem(-147px);
         right: 0;
         display: flex;
       }
@@ -74,9 +79,9 @@ $b: '.s-hero';
       &-prev,
       &-next {
         @include clickable();
-        width: 72px;
-        height: 72px;
-        padding: 26px 24px;
+        width: rem(72px);
+        height: rem(72px);
+        padding: rem(26px) rem(24px);
         border-radius: 50%;
         z-index: 1000;
         transition: $g-transition;
@@ -88,8 +93,8 @@ $b: '.s-hero';
         }
 
         svg {
-          width: 22px;
-          height: 18px;
+          width: rem(22px);
+          height: rem(18px);
           fill: none;
         }
       }
@@ -218,5 +223,107 @@ $b: '.s-hero';
   &__accessories {
     flex: 0 0 auto;
     width: 25%;
+    padding-top: rem(20px);
+
+    &-blocks {
+      padding-left: rem(48px);
+      padding-right: 10px;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    &-title {
+      padding-left: rem(48px);
+      font-weight: bold;
+      font-size: rem(28px);
+      line-height: rem(32px);
+      margin-bottom: rem(86px);
+    }
+
+    &-block {
+      @include clickable();
+      position: relative;
+      padding: rem(32px);
+      display: flex;
+      align-items: center;
+      border: 1px solid $border-base;
+      border-radius: rem(40px);
+      transition: $g-transition;
+
+      &:not(:last-child) {
+        margin-bottom: rem(40px);
+
+        @include tablet {
+          margin-bottom: 20px;
+        }
+      }
+
+      &:hover {
+        padding-left: rem(80px);
+        margin-left: rem(-48px);
+        background-color: $purple;
+        border-color: $purple;
+
+        #{$b}__accessories-price {
+          opacity: 1;
+        }
+
+        #{$b}__accessories-name,
+        #{$b}__accessories-info {
+          color: $white-true;
+        }
+      }
+    }
+
+    &-visual {
+      flex: 0 0 auto;
+      width: rem(120px);
+      height: rem(120px);
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      margin-right: rem(30px);
+    }
+
+    &-name {
+      font-weight: bold;
+      font-size: rem(24px);
+      line-height: rem(27px);
+    }
+
+    &-info {
+      color: $gray;
+      font-size: rem(16px);
+      line-height: rem(24px);
+    }
+
+    &-price {
+      position: absolute;
+      top: 50%;
+      left: rem(-25px);
+      padding: rem(12px) rem(37px);
+      background-color: $purple-dark;
+      border-radius: rem(48px);
+      transform: translateY(-50%) rotate(-90deg);
+      opacity: 0;
+      transition: $g-transition;
+
+      &-inner {
+        font-size: rem(20px);
+        line-height: rem(24px);
+        opacity: 0.7;
+        color: $white-true;
+      }
+    }
   }
+}
+
+.scrollbar-thumb {
+  width: 4px !important;
+  background: $purple-extra-light !important;
+}
+
+.scrollbar-track {
+  width: 4px !important;
+  background: $purple-light !important;
 }

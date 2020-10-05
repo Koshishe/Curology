@@ -75,7 +75,8 @@
     "intersection-observer": "^0.11.0",
     "lozad": "^1.15.0",
     "normalize.css": "^8.0.1",
-    "swiper": "^6.1.1",
+    "smooth-scrollbar": "^8.5.2",
+    "swiper": "6.1.1",
     "vue": "^2.6.11"
   }
 }

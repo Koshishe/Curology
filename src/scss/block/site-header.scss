@@ -6,6 +6,7 @@ $b: '.site-header';
   left: 0;
   right: 0;
   padding-top: rem(38px);
+  z-index: 1000;
 
   * svg {
     fill: none;
